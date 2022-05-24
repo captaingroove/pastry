@@ -24,28 +24,28 @@ let s:pastry_console_window = 0
 let s:pastry_console_buffer = 0
 
 
-function! SetConsoleFunc()
+function! s:SetConsoleFunc()
     let s:pastry_console_window = win_getid()
     let s:pastry_console_buffer = bufnr()
 endfunction
-command! SetConsole call SetConsoleFunc()
+command! SetConsole call s:SetConsoleFunc()
 
 
-function! PastryConsoleNotSet()
+function! s:PastryConsoleNotSet()
     return s:pastry_console_buffer == 0 || s:pastry_console_window == 0
 endfunction
 
 
-function! PastryWarnConsoleNotSet()
+function! s:PastryWarnConsoleNotSet()
     echohl ErrorMsg
     echomsg "First run 'SetConsole' command once in console window ..."
     echohl None
 endfunction
 
 
-function PastryFocusConsole()
-    if PastryConsoleNotSet()
-        call PastryWarnConsoleNotSet()
+function s:PastryFocusConsole()
+    if s:PastryConsoleNotSet()
+        call s:PastryWarnConsoleNotSet()
         return
     endif
     execute bufwinnr(s:pastry_console_buffer) . 'wincmd w'
@@ -53,11 +53,11 @@ endfunction
 
 
 function! PastrySendToConsole(string)
-    if PastryConsoleNotSet()
-        call PastryWarnConsoleNotSet()
+    if s:PastryConsoleNotSet()
+        call s:PastryWarnConsoleNotSet()
         return
     endif
-    if s:pastry_send_to_buffer
+    if g:pastry_send_to_buffer
         let current_window_buffer = s:pastry_console_buffer
     else
         let current_window_buffer = winbufnr(s:pastry_console_window)
@@ -81,7 +81,7 @@ command! -nargs=1 SendConsole call PastrySendToConsole(<f-args>)
 
 function! PastryCdAndFocus(directory)
     call PastrySendToConsole("cd " . a:directory)
-    call PastryFocusConsole()
+    call s:PastryFocusConsole()
 endfunction
 
 
@@ -90,7 +90,7 @@ function! PastrySendCurrentLine()
 endfunction
 
 
-function! PastryUnindent(lines)
+function! s:PastryUnindent(lines)
     let line_starts = []
     for l in a:lines
         let line_start = match(l, '\S')
@@ -128,5 +128,5 @@ function! PastrySendSelection(mode)
     else
         return ''
     endif
-    call PastrySendToConsole(join(PastryUnindent(lines), "\n") . "\n")
+    call PastrySendToConsole(join(s:PastryUnindent(lines), "\n") . "\n")
 endfunction

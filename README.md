@@ -30,9 +30,13 @@ There's also one optional setting:
 
 ```vim
 let g:pastry_send_to_buffer = 0
-" Config option s:pastry_send_to_buffer sends to the buffer and not to the window
-" that was focused when SetConsole was run. Default is sending to window.
+" send to the buffer and not to the window that was focused when SetConsole was run.
+" Default is sending to window.
 ```
+
+## Usage
+
+
 
 ## Compatibility
 
