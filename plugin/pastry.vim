@@ -1,13 +1,25 @@
-" File              : pastry.vim
-" Author            : Jörg Bakker <jorg@hakker.de>
-" Date              : 2020-01-02
-" Last Modified Date: 2021-09-14
-" Last Modified By  : Jörg Bakker <jorg@hakker.de>
+" Copyright (c) 2022 Jörg Bakker
+"
+" Permission is hereby granted, free of charge, to any person obtaining a copy of
+" this software and associated documentation files (the 'Software'), to deal in
+" the Software without restriction, including without limitation the rights to
+" use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+" of the Software, and to permit persons to whom the Software is furnished to do
+" so, subject to the following conditions:
+"
+" The above copyright notice and this permission notice shall be included in all
+" copies or substantial portions of the Software.
+"
+" THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+" IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+" FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+" AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+" LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+" OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+" SOFTWARE.
 
+let g:pastry_send_to_buffer = 0
 
-" Config option s:pastry_send_to_buffer sends to the buffer and not to the window
-" when SetConsole was run. Default is sending to window.
-let s:pastry_send_to_buffer = 0
 let s:pastry_console_window = 0
 let s:pastry_console_buffer = 0
 
