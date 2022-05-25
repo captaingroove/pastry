@@ -18,6 +18,9 @@
 " OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 " SOFTWARE.
 
+" TODO: Add bracketed paste mode as an option or detect it automatically.
+" TODO: Add unindenting selected text as an option.
+
 let g:pastry_send_to_buffer = 0
 
 let s:pastry_console_window = 0
