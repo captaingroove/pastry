@@ -94,7 +94,9 @@ function! s:PastryUnindent(lines)
     let line_starts = []
     for l in a:lines
         let line_start = match(l, '\S')
-        let line_starts = add(line_starts, line_start)
+        if line_start >= 0
+            let line_starts = add(line_starts, line_start)
+        endif
     endfor
     let i = 0
     let new_lines = a:lines
@@ -126,7 +128,7 @@ function! PastrySendSelection(mode)
             let i = i + 1
         endfor
     else
-        return ''
+        return
     endif
     call PastrySendToConsole(join(s:PastryUnindent(lines), "\n") . "\n")
 endfunction
